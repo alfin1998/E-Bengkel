@@ -1,0 +1,10 @@
+Buat akun mysql baru
+ - masuk root : mysql -u root -p
+ - CREATE USER 'e-sistem'@'localhost' IDENTIFIED BY 'password2016';
+kalau ada error, setting validasi passwordnya low 
+ - SET GLOBAL validate_password_policy=LOW;
+beri hak aksesnya:
+ - GRANT ALL PRIVILEGES ON * . * TO 'new_user'@'localhost';
+buat database dengan memasuki akun e-sistem
+ - nama db: e-bengkel
+php artisan migrate
