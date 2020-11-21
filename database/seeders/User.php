@@ -21,7 +21,8 @@ class User extends Seeder
 
         for($i = 1; $i <= 10; $i++){
         DB::table('user')->insert([
-        	'nama' => $faker->name,
+            'nama' => $faker->name,
+            'email' =>$faker->email,
             'Password' => $faker->password,
             'alamat' => $faker->address
         	
