@@ -36,3 +36,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//route CRUD AdminUser
+Route::get('create','App\Http\Controllers\UsersController@create');
+
+Route::post('tambahUsers', 'App\Http\Controllers\UsersController@tambahUser');
+
+Route::get('deleteUsers/{id}','App\Http\Controllers\UsersController@deleteUsers');
+
+Route::get('editUsers/{id}','App\Http\Controllers\UsersController@editUsers');
+
+Route::post('updateUsers/{id}', 'App\Http\Controllers\UsersController@updateUsers');

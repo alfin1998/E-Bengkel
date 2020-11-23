@@ -17,9 +17,23 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
+        'nama',
+        'nohp',
+        
+        
+
+          // $table->id();
+        // $table->string('username');
+        // $table->string('password');
+        // $table->string('nama');
+        // $table->string('email')->unique();
+        // $table->string('nohp');
+        // $table->date('tanggal_lahir');
+        // $table->date('created_when');
+        // $table->date('update_when');
     ];
 
     /**
@@ -29,7 +43,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
+        //'remember_token',
     ];
 
     /**
@@ -38,6 +52,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        //'email_verified_at' => 'datetime',
+        'tanggal_lahir' => 'date',
+        'created_when' => 'date',
+        'update_when' => 'date',
     ];
 }
