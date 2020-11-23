@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Carbon\Carbon;
 
 class UsersController extends Controller
 {
@@ -19,17 +20,18 @@ class UsersController extends Controller
     }
 
     public function tambahUsers(Request $request){ //memasukkan data >store
-        $data = new users();        
+        $data = new User(); 
+        $date =Carbon::parse($request->startFrom)->format('d-m-Y H:i:s');        
         $data->username=$request->input('username');
         $data->password=$request->input('password');
         $data->nama=$request->input('nama');
         $data->email=$request->input('email');
         $data->nohp=$request->input('nohp');
         $data->tanggal_lahir=$request->input('tanggal_lahir');
-        $data->created_who=$request->input('created_when');
-        $data->update_who=$request->input('update_when');
+        $data->created_when=$date;
+        $data->update_when=$date;
         $data->save();
-        return redirect('admin.adminUser') -> with('status', 'Data User Berhasil Ditambahkan');
+        return 'Data User Berhasil Ditambahkan';
       //  return 'berhasil';
 
         // $table->id();

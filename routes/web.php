@@ -40,7 +40,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //route CRUD AdminUser
 Route::get('create','App\Http\Controllers\UsersController@create');
 
-Route::post('tambahUsers', 'App\Http\Controllers\UsersController@tambahUser');
+Route::post('tambahUsers', 'App\Http\Controllers\UsersController@tambahUsers');
 
 Route::get('deleteUsers/{id}','App\Http\Controllers\UsersController@deleteUsers');
 

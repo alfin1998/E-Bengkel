@@ -16,7 +16,7 @@
                 <form action="{{url('editUsers', $data->id)}}" method="post">
                     <div class="form-group">
                         <label for="id">id</label>
-                        <input type="number" name="id" id="id" class="form-control" required="require">
+                        <input type="hidden" name="id" id="id" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="username">Username</label>

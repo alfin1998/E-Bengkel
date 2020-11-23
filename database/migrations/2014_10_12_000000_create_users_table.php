@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->date('tanggal_lahir');
             $table->date('created_when');
             $table->date('update_when');
-        
+            $table->string('remember_token');
         });
     }
 
