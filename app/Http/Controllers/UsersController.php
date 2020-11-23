@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class UsersController extends Controller
 {
@@ -11,12 +12,10 @@ class UsersController extends Controller
     public function indexUsers()
     {
         //
-        //users::all();
+     //   users::all();
 
-    //     // mengambil data dari table users
-    $data = DB::table('users') -> get();
-    // // mengirim data user admin ke view adminUser
-    return view('admin.adminUser.index', ['users' => $data]);
+     $data=User::all();
+     return view('admin.adminUser.index',compact('data'));
     }
 
     public function tambahUsers(Request $request){ //memasukkan data >store
@@ -30,7 +29,7 @@ class UsersController extends Controller
         $data->created_who=$request->input('created_when');
         $data->update_who=$request->input('update_when');
         $data->save();
-        return redirect('/admin/adminUser') -> with('status', 'Data User Berhasil Ditambahkan');
+        return redirect('admin.adminUser') -> with('status', 'Data User Berhasil Ditambahkan');
       //  return 'berhasil';
 
         // $table->id();
@@ -46,7 +45,7 @@ class UsersController extends Controller
     }
     
     public function editUsers(Request $request, $id){
-        $data=users::find($id);        
+        $data=User::find($id);        
         $data->username=$request->input('username');
         $data->password=$request->input('password');
         $data->nama=$request->input('nama');
@@ -56,19 +55,19 @@ class UsersController extends Controller
         $data->created_who=$request->input('created_when');
         $data->update_who=$request->input('update_when');
         $data->save();
-        return 'berhasil';
+        return redirect('admin.adminUser') -> with('status', 'Data User Berhasil Diedit');
 
     }
 
     public function deleteUsers($id){
-        $data=Users::find($id);
+        $data=User::find($id);
            $data->delete();
            return back();
        }
 
     public function updateUsers(Request $request, $id)
     {
-        $data = Users::findOrFail($id);
+        $data = User::findOrFail($id); //model
         $data->username=$request->get('username');
         $data->password=$request->get('password');
         $data->nama=$request->get('nama');
@@ -78,7 +77,7 @@ class UsersController extends Controller
         $data->created_who=$request->get('created_when');
         $data->update_who=$request->get('update_when');
         $data->save();
-        return redirect('admin.adminUser') -> with('status', 'Data User Berhasil Ditambahkan');
+        return redirect('admin.adminUser') -> with('status', 'Data User Berhasil DiUpdate');
     }
     /**
      * Show the form for creating a new resource.

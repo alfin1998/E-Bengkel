@@ -47,3 +47,5 @@ Route::get('deleteUsers/{id}','App\Http\Controllers\UsersController@deleteUsers'
 Route::get('editUsers/{id}','App\Http\Controllers\UsersController@editUsers');
 
 Route::post('updateUsers/{id}', 'App\Http\Controllers\UsersController@updateUsers');
+
+Route::get('indexUsers', 'App\Http\Controllers\UsersController@indexUsers');

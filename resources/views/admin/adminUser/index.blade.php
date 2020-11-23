@@ -10,7 +10,7 @@
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>Tutorial CRUD Laravel</h4>
+                <h4>CRUD Laravel</h4>
             </div>
             <div class="panel-body">
                 <form action="{{url('create')}}" method="get">
@@ -59,7 +59,6 @@
                             <td>{{ $d->created_when }}</td>
                             <td>{{ $d->update_when }}</td>
                             <td>
-                                {{-- <a href="{{url('read',array($d->id))}}">Read</a> --}}
                                 <a href="{{url('deleteUsers',array($d->id))}}">Delete</a>
                                 <a href="{{url('editUsers',array($d->id))}}">Edit</a>
                             </td>
@@ -67,6 +66,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{-- <a href="{{url('create',array($d->id))}}">Create</a> --}}
             </div>
         </div>
     </div>
