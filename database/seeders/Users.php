@@ -24,11 +24,11 @@ class Users extends Seeder
         $faker = Faker::create('id_ID');
 
         for($i = 1; $i <= 10; $i++){
-            if($i!=1){    
-                $token=Str::random(100);
-            }else{
-                $token='XaG8UakHu5AN4W6Kc7rfJS16W4ibQ3W7S1LyCZEoPDNubO1OnU9VJBCrma0gRJMIBYYxpWWu6crn21E7f156LiIgglUIaAri4sdQ';
-            }
+            // if($i!=1){    
+            //     $token=Str::random(100);
+            // }else{
+            //     $token='XaG8UakHu5AN4W6Kc7rfJS16W4ibQ3W7S1LyCZEoPDNubO1OnU9VJBCrma0gRJMIBYYxpWWu6crn21E7f156LiIgglUIaAri4sdQ';
+            // }
         DB::table('users')->insert([
             'username' => $faker->username,
             'password' => Hash::make('123'),
@@ -37,8 +37,8 @@ class Users extends Seeder
             'nohp' => $faker->phoneNumber,
             'tanggal_lahir'=> $faker->date,
             'created_when' => $faker->date,
-            'update_when' => $faker->date,
-            'remember_token'=>$token
+            'update_when' => $faker->date
+            //'remember_token'=>$token
         	
         ]);
         }
