@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Carbon\Carbon;
 
@@ -22,7 +23,7 @@ class UsersController extends Controller
     public function tambahUsers(Request $request){ //memasukkan data >store
         $data = new User(); 
         $date =Carbon::parse($request->startFrom)->format('d-m-Y H:i:s');        
-        $data->username=$request->input('username');
+        $pass = $data->username=$request->input('username');
         $data->password=$request->input('password');
         $data->nama=$request->input('nama');
         $data->email=$request->input('email');
@@ -30,8 +31,11 @@ class UsersController extends Controller
         $data->tanggal_lahir=$request->input('tanggal_lahir');
         $data->created_when=$date;
         $data->update_when=$date;
+        $data->password = Hash::make($pass);
+       // $pass = $data->password=$request->get('password');
+        
         $data->save();
-        return 'Data User Berhasil Ditambahkan';
+        return redirect('admin.adminUser.indexUser') -> with('status', 'Data User Berhasil Ditambah');
       //  return 'berhasil';
 
         // $table->id();
