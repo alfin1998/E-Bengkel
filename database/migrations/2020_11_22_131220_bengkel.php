@@ -36,6 +36,7 @@ class Bengkel extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('bengkel');
+    
     }
 }

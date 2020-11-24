@@ -15,7 +15,7 @@ class Pelanggan extends Migration
     {
         //
         Schema::create('pelanggan', function (Blueprint $table) {
-            $table->id('id_pelanggan');
+            $table->id('id_pelanggan')->unsigned();
             $table->date('created_when');
             $table->date('update_when');
         
