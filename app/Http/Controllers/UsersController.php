@@ -23,8 +23,8 @@ class UsersController extends Controller
     public function tambahUsers(Request $request){ //memasukkan data >store
         $data = new User(); 
         $date =Carbon::parse($request->startFrom)->format('d-m-Y H:i:s');        
-        $pass = $data->username=$request->input('username');
-        $data->password=$request->input('password');
+        $data->username=$request->input('username');
+        $pass = $data->password=$request->input('password');
         $data->nama=$request->input('nama');
         $data->email=$request->input('email');
         $data->nohp=$request->input('nohp');
@@ -35,7 +35,7 @@ class UsersController extends Controller
        // $pass = $data->password=$request->get('password');
         
         $data->save();
-        return redirect('admin.adminUser.indexUser') -> with('status', 'Data User Berhasil Ditambah');
+        return redirect('indexUsers') -> with('status', 'Data User Berhasil Ditambah');
       //  return 'berhasil';
 
         // $table->id();
@@ -51,17 +51,19 @@ class UsersController extends Controller
     }
     
     public function editUsers(Request $request, $id){
-        $data=User::find($id);        
-        $data->username=$request->input('username');
-        $data->password=$request->input('password');
-        $data->nama=$request->input('nama');
-        $data->email=$request->input('email');
-        $data->nohp=$request->input('nohp');
-        $data->tanggal_lahir=$request->input('tanggal_lahir');
-        $data->created_who=$request->input('created_when');
-        $data->update_who=$request->input('update_when');
-        $data->save();
-        return redirect('admin.adminUser') -> with('status', 'Data User Berhasil Diedit');
+        // $data=User::find($id);        
+        // $data->username=$request->input('username');
+        // $data->password=$request->input('password');
+        // $data->nama=$request->input('nama');
+        // $data->email=$request->input('email');
+        // $data->nohp=$request->input('nohp');
+        // $data->tanggal_lahir=$request->input('tanggal_lahir');
+        // $data->created_when=$request->input('created_when');
+        // $data->update_when=$request->input('update_when');
+        // $data->save();
+        // return redirect('admin.adminUser') -> with('status', 'Data User Berhasil Diedit');
+        $data=User::find($id); //get data
+        return view('admin.adminUser.edit',compact('data'));
 
     }
 
@@ -74,16 +76,18 @@ class UsersController extends Controller
     public function updateUsers(Request $request, $id)
     {
         $data = User::findOrFail($id); //model
-        $data->username=$request->get('username');
-        $data->password=$request->get('password');
+        $date =Carbon::parse($request->startFrom)->format('d-m-Y H:i:s');
+        //$data->username=$request->get('username');
+        $pass = $data->password=$request->input('password');
         $data->nama=$request->get('nama');
         $data->email=$request->get('email');
         $data->nohp=$request->get('nohp');
         $data->tanggal_lahir=$request->get('tanggal_lahir');
-        $data->created_who=$request->get('created_when');
-        $data->update_who=$request->get('update_when');
+        $data->created_when=$date;
+        $data->update_when=$date;
+        $data->password = Hash::make($pass);
         $data->save();
-        return redirect('admin.adminUser') -> with('status', 'Data User Berhasil DiUpdate');
+        return redirect('indexUsers') -> with('status', 'Data User Berhasil DiUpdate');
     }
     /**
      * Show the form for creating a new resource.

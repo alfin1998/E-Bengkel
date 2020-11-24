@@ -13,14 +13,14 @@
                 <h4>CRUD User</h4>
             </div>
             <div class="panel-body">
-                <form action="{{url('editUsers', $data->id)}}" method="post">
+                <form action="{{url('updateUsers', $data->id)}}" method="post">
                     <div class="form-group">
                         <label for="id">id</label>
                         <input type="hidden" name="id" id="id" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" name="username" id="username" class="form-control">
+                        <input type="hidden" name="username" id="username" class="form-control">
                     </div>                    
                     <div class="form-group">
                         <label for="password">Password</label>
@@ -44,11 +44,11 @@
                     </div>      
                     <div class="form-group">
                         <label for="created_when">Created When</label>
-                        <input type="date" name="created_when" id="created_when" class="form-control">
+                        <input type="hidden" name="created_when" id="created_when" class="form-control">
                     </div>   
                     <div class="form-group">
                         <label for="update_when">Update When</label>
-                        <input type="date" name="update_when" id="update_when" class="form-control">
+                        <input type="hidden" name="update_when" id="update_when" class="form-control">
                     </div>    
                     <div class="form-group">
                         <input type="submit" name="send" id="send" value="Simpan" class="btn btn-success">{!!csrf_field()!!}                       
