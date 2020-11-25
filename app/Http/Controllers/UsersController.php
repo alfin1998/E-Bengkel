@@ -85,7 +85,7 @@ class UsersController extends Controller
         $data->tanggal_lahir=$request->get('tanggal_lahir');
         $data->created_when=$date;
         $data->update_when=$date;
-        $data->password = Hash::make($pass);
+        $data->password = Hash::make($pass); //CREATE HASH
         $data->save();
         return redirect('indexUsers') -> with('status', 'Data User Berhasil DiUpdate');
     }

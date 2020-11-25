@@ -8,3 +8,9 @@ beri hak aksesnya:
 buat database dengan memasuki akun e-sistem
  - nama db: e-bengkel
 php artisan migrate
+
+
+
+
+admin template link: https://adminlte.io/blog/integrate-adminlte-with-laravel
+
