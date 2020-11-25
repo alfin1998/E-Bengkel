@@ -38,7 +38,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //route CRUD AdminUser
-Route::get('create','App\Http\Controllers\UsersController@create');
+Route::get('create','App\Http\Controllers\UsersController@create'); //route dan controller
 
 Route::post('tambahUsers', 'App\Http\Controllers\UsersController@tambahUsers');
 
