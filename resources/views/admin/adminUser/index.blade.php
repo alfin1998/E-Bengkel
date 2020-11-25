@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
 </head>
 <body>
+    <nav>
+        <a href="/home/">Main Menu</a> |
+        <a href="/gallery/">User Management</a> |
+        <a href="/contact/">Bengkel</a> |
+    </nav>
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
