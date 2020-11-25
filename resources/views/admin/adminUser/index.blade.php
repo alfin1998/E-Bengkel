@@ -9,7 +9,7 @@
 <body>
     <nav>
         <a href="/home/">Main Menu</a> |
-        <a href="/gallery/">User Management</a> |
+        <a href="{{url('indexUser')}}">User Management</a> |
         <a href="/contact/">Bengkel</a> |
     </nav>
     <div class="container">
