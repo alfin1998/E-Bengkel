@@ -49,3 +49,6 @@ Route::get('editUsers/{id}','App\Http\Controllers\UsersController@editUsers');
 Route::post('updateUsers/{id}', 'App\Http\Controllers\UsersController@updateUsers');
 
 Route::get('indexUsers', 'App\Http\Controllers\UsersController@indexUsers');
+
+//Admin 
+Route::get('admin', 'App\Http\Controllers\HomeController@admin');
