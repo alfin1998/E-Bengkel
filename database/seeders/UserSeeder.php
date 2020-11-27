@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
                 'name'=>$faker->name,         
                 'email'=>$faker->email,         
                 // 'email_verified_at'=>$faker->email,         
-                'password'=>bcrypt('pass_user'),
+                //'password'=>bcrypt('pass_user'),
                 'api_token'=>$token,
                 // 'api_token'=>Str::random(100),         
             ]);

@@ -38,9 +38,7 @@ class User extends Authenticatable
         // $table->date('created_when');
         // $table->date('update_when');
     ];
-    public function setPasswordAttribute($value) {
-        $this->attributes['password'] = bcrypt($value);
-    }
+    
     /**
      * The attributes that should be hidden for arrays.
      *
